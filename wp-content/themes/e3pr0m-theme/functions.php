@@ -5,7 +5,7 @@
  * @package   e3pr0m-theme
  * @author    e3pr0m
  * @link      https://tuosito.dev
- * @version   1.0.1
+ * @version   1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
