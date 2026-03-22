@@ -5,7 +5,7 @@
  * @package   e3pr0m-theme
  * @author    e3pr0m
  * @link      https://www.e3pr0m.com
- * @version   1.0.0
+ * @version   1.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
