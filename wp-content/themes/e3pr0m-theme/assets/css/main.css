@@ -1,0 +1,226 @@
+/**
+ * e3pr0m Theme — main.css
+ * Stili aggiuntivi e componenti extra
+ *
+ * @package   e3pr0m-theme
+ * @author    e3pr0m
+ */
+
+/* =========================================
+   HEADER SCROLLED
+   ========================================= */
+.site-header.is-scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   CONTAINER NARROW (post/pagine)
+   ========================================= */
+.container--narrow {
+  max-width: 720px;
+}
+
+/* =========================================
+   SECTION TITLE
+   ========================================= */
+.section__title {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xl);
+}
+
+.section__prefix {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+}
+
+/* =========================================
+   HERO ACTIONS
+   ========================================= */
+.hero__actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   POSTS LIST (blog homepage)
+   ========================================= */
+.posts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* =========================================
+   CARD EXTRA
+   ========================================= */
+.card__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.card__readmore {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+  margin-top: var(--space-md);
+  display: inline-block;
+}
+
+/* =========================================
+   PROSE (contenuto articoli)
+   ========================================= */
+.prose {
+  font-size: var(--fs-base);
+  line-height: 1.8;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-weight: 700;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.prose p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose code {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2px 6px;
+  font-size: var(--fs-sm);
+  color: var(--color-accent);
+}
+
+.prose pre {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  overflow-x: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-text);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-md);
+  color: var(--color-muted);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.prose li {
+  margin-bottom: var(--space-sm);
+}
+
+.prose img {
+  border-radius: var(--radius);
+  margin-block: var(--space-lg);
+}
+
+/* =========================================
+   SINGLE POST
+   ========================================= */
+.single-post__header {
+  margin-bottom: var(--space-xl);
+}
+
+.single-post__title {
+  font-size: clamp(var(--fs-xl), 4vw, var(--fs-3xl));
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.single-post__thumbnail {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+}
+
+.single-post__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+/* =========================================
+   TAGS
+   ========================================= */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  color: var(--color-accent);
+  text-transform: lowercase;
+}
+
+.tag:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  opacity: 1;
+}
+
+/* =========================================
+   POST NAVIGATION
+   ========================================= */
+.post-navigation {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+
+/* =========================================
+   BTN SM
+   ========================================= */
+.btn--sm {
+  padding: 4px 12px;
+  font-size: var(--fs-xs);
+}
+
+/* =========================================
+   NO CONTENT
+   ========================================= */
+.no-content {
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}

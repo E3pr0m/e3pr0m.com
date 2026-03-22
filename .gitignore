@@ -1,0 +1,50 @@
+# =========================================
+# WordPress Core — NON tracciare
+# =========================================
+wp-admin/
+wp-includes/
+wp-*.php
+xmlrpc.php
+license.txt
+readme.html
+wp-content/index.php
+
+# =========================================
+# Plugin e temi di terze parti — NON tracciare
+# Ma TRACCIA i tuoi (e3pr0m-*)
+# =========================================
+wp-content/plugins/*
+!wp-content/plugins/e3pr0m-*/
+
+wp-content/themes/*
+!wp-content/themes/e3pr0m-theme/
+
+# =========================================
+# Upload e cache — NON tracciare
+# =========================================
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# =========================================
+# File di sistema e IDE
+# =========================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.sql
+*.tar.gz
+*.zip
+
+# =========================================
+# Node / Build
+# =========================================
+node_modules/
+dist/
+.env
+.env.local
