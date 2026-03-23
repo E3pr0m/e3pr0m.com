@@ -28,6 +28,7 @@ wp-content/upgrade/
 wp-content/backup-db/
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
+wp-content/languages/
 
 # =========================================
 # File di sistema e IDE
