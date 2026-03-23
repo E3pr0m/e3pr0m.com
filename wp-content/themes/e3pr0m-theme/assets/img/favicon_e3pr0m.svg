@@ -1,0 +1,23 @@
+<svg width="100%" viewBox="0 0 200 210" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+    <filter id="g">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sfondo -->
+  <rect width="200" height="200" rx="36" fill="#0d0d0d" style="fill:rgb(13, 13, 13);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect width="200" height="200" rx="36" fill="none" stroke="#1f1f1f" stroke-width="2" style="fill:none;stroke:rgb(31, 31, 31);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Prompt > -->
+  <text font-family="'JetBrains Mono', monospace" font-weight="700" x="28" y="118" font-size="52" fill="#00ff99" filter="url(#g)" style="fill:rgb(0, 255, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;JetBrains Mono&quot;, monospace;font-size:52px;font-weight:700;text-anchor:start;dominant-baseline:auto">&gt;</text>
+
+  <!-- Underscore / cursore -->
+  <rect x="76" y="128" width="96" height="10" rx="2" fill="#00ff99" filter="url(#g)" style="fill:rgb(0, 255, 153);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Punto viola decorativo -->
+  <circle cx="164" cy="56" r="7" fill="#7b61ff" opacity="0.8" style="fill:rgb(123, 97, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="142" cy="56" r="5" fill="#7b61ff" opacity="0.35" style="fill:rgb(123, 97, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.35;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</svg>

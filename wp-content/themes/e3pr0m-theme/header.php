@@ -12,7 +12,11 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="profile" href="https://gmpg.org/xfn/11">
-  <?php wp_head(); ?>
+  <?php wp_head(); 
+  add_action( 'wp_head', function() {
+    echo '<link rel="icon" type="image/svg+xml" href="' . E3PR0M_ASSETS . '/img/favicon_e3pr0m.svg">';
+} );
+  ?>
 </head>
 
 <body <?php body_class(); ?>>
