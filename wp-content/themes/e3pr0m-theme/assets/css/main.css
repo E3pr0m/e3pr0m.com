@@ -224,3 +224,81 @@
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
 }
+/* =========================================
+   ARCHIVE HEADER
+   ========================================= */
+.archive-header {
+  margin-bottom: var(--space-xl);
+}
+
+.archive-header__title {
+  font-size: clamp(var(--fs-xl), 4vw, var(--fs-2xl));
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.archive-header__description {
+  color: var(--color-muted);
+  font-size: var(--fs-base);
+  max-width: 600px;
+}
+
+/* =========================================
+   ARCHIVE FILTER
+   ========================================= */
+.archive-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.archive-filter__btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 4px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-muted);
+  transition: all var(--transition);
+}
+
+.archive-filter__btn:hover,
+.archive-filter__btn.is-active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  opacity: 1;
+}
+
+/* =========================================
+   ARCHIVE PAGINATION
+   ========================================= */
+.archive-pagination {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.archive-pagination .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.archive-pagination .page-numbers {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-muted);
+  transition: all var(--transition);
+}
+
+.archive-pagination .page-numbers:hover,
+.archive-pagination .page-numbers.current {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  opacity: 1;
+}

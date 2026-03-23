@@ -23,8 +23,9 @@ get_header();
       <?php bloginfo( 'description' ); ?>
     </p>
     <div class="hero__actions">
-      <a href="<?php echo esc_url( get_page_link( get_page_by_path( 'portfolio' ) ) ); ?>" class="btn btn--primary">
-        &rarr; <?php esc_html_e( 'Vedi i progetti', 'e3pr0m-theme' ); ?>
+  
+    <a href="<?php echo esc_url( get_post_type_archive_link( 'projects' ) ); ?>" class="btn btn--primary">
+    &rarr; <?php esc_html_e( 'Vedi i progetti', 'e3pr0m-theme' ); ?>
       </a>
       <a href="<?php echo esc_url( get_page_link( get_page_by_path( 'contatti' ) ) ); ?>" class="btn btn--outline">
         <?php esc_html_e( 'Contattami', 'e3pr0m-theme' ); ?>
