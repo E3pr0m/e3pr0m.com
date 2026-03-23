@@ -1,0 +1,237 @@
+/**
+ * e3pr0m Code Snippet — codesnippet.css
+ *
+ * Sovrascrive il tema Prism di default con l'estetica
+ * dark neon del tema e3pr0m (variabili CSS ereditate).
+ *
+ * Struttura HTML generata da e3cs_render_snippet():
+ *
+ *  .codesnippet[.line-numbers]
+ *    .codesnippet__bar
+ *      .codesnippet__lang
+ *      .codesnippet__title   (opzionale)
+ *      .codesnippet__copy    (opzionale)
+ *    pre.language-*
+ *      code.language-*
+ *
+ * @package e3pr0m-codesnippet
+ */
+
+/* =========================================
+   VARIABILI LOCALI
+   ========================================= */
+.codesnippet {
+  --e3cs-bg:         #0d0d0d;
+  --e3cs-surface:    #141414;
+  --e3cs-border:     #1f1f1f;
+  --e3cs-text:       #e0e0e0;
+  --e3cs-muted:      #666;
+  --e3cs-accent:     #00ff99;
+  --e3cs-accent-2:   #7b61ff;
+  --e3cs-radius:     6px;
+  --e3cs-font:       'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --e3cs-fs:         0.875rem;
+  --e3cs-fs-sm:      0.75rem;
+  --e3cs-transition: 0.2s ease;
+
+  /* Token colors Prism — override */
+  --e3cs-token-comment:    #5c6370;
+  --e3cs-token-keyword:    #7b61ff;
+  --e3cs-token-string:     #00ff99;
+  --e3cs-token-number:     #ffa94d;
+  --e3cs-token-function:   #61afef;
+  --e3cs-token-operator:   #56b6c2;
+ /* --e3cs-token-punctuation:#abb2bf; */
+  --e3cs-token-punctuation: #c5eb19;
+  --e3cs-token-class:      #e5c07b;
+  --e3cs-token-tag:        #e06c75;
+  --e3cs-token-attr:       #d19a66;
+  --e3cs-token-builtin:    #e5c07b;
+}
+
+/* =========================================
+   WRAPPER
+   ========================================= */
+.codesnippet {
+  background: var(--e3cs-bg);
+  border: 1px solid var(--e3cs-border);
+  border-radius: var(--e3cs-radius);
+  overflow: hidden;
+  margin-block: 1.5rem;
+  font-size: var(--e3cs-fs);
+}
+
+/* =========================================
+   BARRA SUPERIORE
+   ========================================= */
+.codesnippet__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--e3cs-surface);
+  border-bottom: 1px solid var(--e3cs-border);
+  font-family: var(--e3cs-font);
+}
+
+.codesnippet__lang {
+  font-size: var(--e3cs-fs-sm);
+  color: var(--e3cs-accent);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+}
+
+.codesnippet__title {
+  font-size: var(--e3cs-fs-sm);
+  color: var(--e3cs-muted);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.codesnippet__copy {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid var(--e3cs-border);
+  border-radius: var(--e3cs-radius);
+  color: var(--e3cs-muted);
+  font-family: var(--e3cs-font);
+  font-size: var(--e3cs-fs-sm);
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: color var(--e3cs-transition),
+              border-color var(--e3cs-transition);
+  white-space: nowrap;
+}
+
+.codesnippet__copy:hover {
+  color: var(--e3cs-accent);
+  border-color: var(--e3cs-accent);
+}
+
+.codesnippet__copy.is-copied {
+  color: var(--e3cs-accent);
+  border-color: var(--e3cs-accent);
+}
+
+/* =========================================
+   PRE / CODE
+   ========================================= */
+.codesnippet pre[class*="language-"] {
+  margin: 0;
+  padding: 1.25rem 1rem 1.25rem 1rem;
+  background: var(--e3cs-bg);
+  border-radius: 0;
+  overflow-x: auto;
+  font-family: var(--e3cs-font);
+  font-size: var(--e3cs-fs);
+  line-height: 1.7;
+}
+
+.codesnippet code[class*="language-"] {
+  font-family: var(--e3cs-font);
+  font-size: inherit;
+  background: none;
+  text-shadow: none;
+}
+
+/* =========================================
+   NUMERI DI RIGA (Prism line-numbers plugin)
+   ========================================= */
+.codesnippet.line-numbers pre[class*="language-"] {
+  padding-left: 3.5rem;
+}
+
+.codesnippet .line-numbers-rows {
+  border-right: 1px solid var(--e3cs-border);
+}
+
+.codesnippet .line-numbers-rows > span::before {
+  color: var(--e3cs-muted);
+}
+
+/* =========================================
+   TOKEN COLORS — override Prism
+   ========================================= */
+.codesnippet .token.comment,
+.codesnippet .token.prolog,
+.codesnippet .token.doctype,
+.codesnippet .token.cdata {
+  color: var(--e3cs-token-comment);
+  font-style: italic;
+}
+
+.codesnippet .token.keyword,
+.codesnippet .token.rule,
+.codesnippet .token.important {
+  color: var(--e3cs-token-keyword);
+}
+
+.codesnippet .token.string,
+.codesnippet .token.char,
+.codesnippet .token.attr-value,
+.codesnippet .token.regex {
+  color: var(--e3cs-token-string);
+}
+
+.codesnippet .token.number,
+.codesnippet .token.boolean,
+.codesnippet .token.constant,
+.codesnippet .token.inserted {
+  color: var(--e3cs-token-number);
+}
+
+.codesnippet .token.function,
+.codesnippet .token.function-name {
+  color: var(--e3cs-token-function);
+}
+
+.codesnippet .token.operator,
+.codesnippet .token.entity,
+.codesnippet .token.url {
+  color: var(--e3cs-token-operator);
+  background: none;
+}
+
+.codesnippet .token.punctuation {
+  color: var(--e3cs-token-punctuation);
+}
+
+.codesnippet .token.class-name,
+.codesnippet .token.maybe-class-name {
+  color: var(--e3cs-token-class);
+}
+
+.codesnippet .token.tag,
+.codesnippet .token.deleted {
+  color: var(--e3cs-token-tag);
+}
+
+.codesnippet .token.attr-name,
+.codesnippet .token.property {
+  color: var(--e3cs-token-attr);
+}
+
+.codesnippet .token.builtin,
+.codesnippet .token.selector {
+  color: var(--e3cs-token-builtin);
+}
+
+.codesnippet .token.variable,
+.codesnippet .token.symbol {
+  color: var(--e3cs-accent-2);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 480px) {
+  .codesnippet pre[class*="language-"] {
+    font-size: 0.8125rem;
+  }
+
+  .codesnippet__title {
+    display: none;
+  }
+}

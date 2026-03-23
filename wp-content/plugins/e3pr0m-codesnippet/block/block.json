@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "e3pr0m/codesnippet",
+	"version": "1.0.0",
+	"title": "Code Snippet",
+	"category": "formatting",
+	"icon": "editor-code",
+	"description": "Visualizza snippet di codice con syntax highlighting e copia con un click.",
+	"keywords": ["code", "snippet", "syntax", "highlight", "prism"],
+	"textdomain": "e3pr0m-codesnippet",
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"lang": {
+			"type": "string",
+			"default": "plaintext"
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"showLines": {
+			"type": "boolean",
+			"default": true
+		},
+		"copyable": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": false,
+		"className": false,
+		"anchor": true
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle":  "e3cs-style-editor",
+	"style":        "e3cs-style"
+}
