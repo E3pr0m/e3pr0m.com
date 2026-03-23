@@ -163,3 +163,12 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 // =========================================
 
 require_once E3PR0M_DIR . '/inc/template-functions.php';
+
+// Rimuove il link al sito (favicon) generico di WordPress
+remove_action( 'wp_head', 'wp_site_icon', 99 ); 
+
+// Aggiunge un link alla favicon personalizzata
+add_action( 'wp_head', function() {
+    echo '<link rel="icon" type="image/svg+xml" href="' . E3PR0M_ASSETS . '/img/favicon_e3pr0m.svg">';
+    echo '<link rel="alternate icon" type="image/png" href="' . E3PR0M_ASSETS . '/img/favicon_e3pr0m-64.png">';
+} );
