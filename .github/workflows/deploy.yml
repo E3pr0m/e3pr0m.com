@@ -12,6 +12,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check secrets
+        run: |
+          echo "Server is set: ${{ secrets.FTP_SERVER != '' }}"
+          echo "Username is set: ${{ secrets.FTP_USERNAME != '' }}"
+          echo "Password is set: ${{ secrets.FTP_PASSWORD != '' }}"
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
