@@ -1,0 +1,95 @@
+/**
+ * e3pr0m Projects — Admin Styles
+ *
+ * @package e3pr0m-projects
+ */
+
+/* =========================================
+   METABOX CONTAINER
+   ========================================= */
+.e3pr0m-meta-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 4px 0;
+}
+
+/* =========================================
+   RIGA SINGOLA
+   ========================================= */
+.e3pr0m-meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.e3pr0m-meta-row--half {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* =========================================
+   LABEL
+   ========================================= */
+.e3pr0m-meta-row label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #1d2327;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.e3pr0m-meta-row label small {
+    font-weight: 400;
+    color: #787c82;
+    font-size: 11px;
+}
+
+.e3pr0m-meta-row label .dashicons {
+    color: #2271b1;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================
+   INPUT / SELECT
+   ========================================= */
+.e3pr0m-meta-input,
+.e3pr0m-meta-select {
+    width: 100%;
+    max-width: 600px;
+    padding: 8px 10px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #1d2327;
+    background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.e3pr0m-meta-input:focus,
+.e3pr0m-meta-select:focus {
+    outline: none;
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.e3pr0m-meta-select {
+    cursor: pointer;
+}
+
+input[type="number"].e3pr0m-meta-input {
+    max-width: 140px;
+}
+
+/* =========================================
+   COLONNE LIST TABLE
+   ========================================= */
+.column-project_tech,
+.column-project_status,
+.column-project_year {
+    width: 120px;
+}
