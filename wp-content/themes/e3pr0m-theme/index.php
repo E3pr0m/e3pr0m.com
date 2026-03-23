@@ -14,7 +14,7 @@ get_header();
      ============================== -->
 <section class="hero">
   <div class="container">
-    <p class="hero__label">// ciao, sono</p>
+    <p class="hero__label">// Hello World, I'm</p>
     <h1 class="hero__title">
       e3pr0m<em>.</em><br>
       Web Developer<span class="cursor"></span>
