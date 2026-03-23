@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroTitle = document.querySelector('.hero__title em');
 
   if (heroTitle) {
-    const words = ['Web Developer', 'WordPress Dev', 'Plugin Builder', 'e3pr0m'];
+    const words = ['Web Developer', 'WordPress Dev', 'Plugin Builder', 'Problem Solver', 'Coffee Consumer', 'Tech Enthusiast'];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
