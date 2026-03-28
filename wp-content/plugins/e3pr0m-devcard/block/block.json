@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "e3pr0m/devcard",
+	"version": "1.0.0",
+	"title": "DevCard",
+	"category": "widgets",
+	"icon": "id-alt",
+	"description": "Widget \"Chi sono\" — mostra una card sviluppatore con avatar, ruolo, bio e link social.",
+	"keywords": ["devcard", "chi sono", "about", "profilo", "developer", "card", "social"],
+	"textdomain": "e3pr0m-devcard",
+	"attributes": {
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"role": {
+			"type": "string",
+			"default": ""
+		},
+		"bio": {
+			"type": "string",
+			"default": ""
+		},
+		"avatar": {
+			"type": "string",
+			"default": ""
+		},
+		"github": {
+			"type": "string",
+			"default": ""
+		},
+		"twitter": {
+			"type": "string",
+			"default": ""
+		},
+		"linkedin": {
+			"type": "string",
+			"default": ""
+		},
+		"website": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"className": false,
+		"anchor": true
+	},
+	"editorStyle": "e3dc-style-editor",
+	"style": "e3dc-style"
+}

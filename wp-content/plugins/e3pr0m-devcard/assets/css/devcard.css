@@ -1,0 +1,230 @@
+/**
+ * e3pr0m DevCard — devcard.css
+ *
+ * Estetica dark neon coerente con il tema e3pr0m.
+ * Stessa palette di e3pr0m-codesnippet.
+ *
+ * Struttura HTML generata da e3dc_render_card():
+ *
+ *  .devcard[role="region"]
+ *    .devcard__avatar-wrap[aria-hidden]
+ *      img.devcard__avatar           (se avatar fornito)
+ *      .devcard__avatar-placeholder  (se no avatar / fallback JS)
+ *    .devcard__body
+ *      p.devcard__name
+ *      p.devcard__role
+ *      p.devcard__bio
+ *      ul.devcard__links
+ *        li
+ *          a.devcard__link.devcard__link--{platform}
+ *            svg
+ *            span
+ *
+ * @package e3pr0m-devcard
+ */
+
+/* =========================================
+   VARIABILI LOCALI
+   ========================================= */
+.devcard {
+  --e3dc-bg:         #0d0d0d;
+  --e3dc-surface:    #141414;
+  --e3dc-border:     #1f1f1f;
+  --e3dc-text:       #e0e0e0;
+  --e3dc-muted:      #666;
+  --e3dc-accent:     #00ff99;
+  --e3dc-accent-2:   #7b61ff;
+  --e3dc-radius:     6px;
+  --e3dc-font:       system-ui, -apple-system, sans-serif;
+  --e3dc-font-mono:  'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --e3dc-fs:         1rem;
+  --e3dc-fs-sm:      0.875rem;
+  --e3dc-fs-xs:      0.75rem;
+  --e3dc-transition: 0.2s ease;
+  --e3dc-avatar-size: 80px;
+}
+
+/* =========================================
+   WRAPPER
+   ========================================= */
+.devcard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: var(--e3dc-bg);
+  border: 1px solid var(--e3dc-border);
+  border-radius: var(--e3dc-radius);
+  padding: 1.5rem;
+  margin-block: 1.5rem;
+  font-family: var(--e3dc-font);
+  font-size: var(--e3dc-fs);
+  color: var(--e3dc-text);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Riga decorativa accent in alto */
+.devcard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--e3dc-accent), var(--e3dc-accent-2));
+}
+
+/* =========================================
+   AVATAR
+   ========================================= */
+.devcard__avatar-wrap {
+  flex-shrink: 0;
+}
+
+.devcard__avatar,
+.devcard__avatar-placeholder {
+  width: var(--e3dc-avatar-size);
+  height: var(--e3dc-avatar-size);
+  border-radius: 50%;
+  display: block;
+}
+
+.devcard__avatar {
+  object-fit: cover;
+  border: 2px solid var(--e3dc-border);
+  transition: border-color var(--e3dc-transition),
+              box-shadow var(--e3dc-transition);
+}
+
+.devcard:hover .devcard__avatar {
+  border-color: var(--e3dc-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--e3dc-accent) 15%, transparent);
+}
+
+/* Placeholder iniziali */
+.devcard__avatar-placeholder {
+  background: var(--e3dc-surface);
+  border: 2px solid var(--e3dc-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--e3dc-font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--e3dc-accent);
+  letter-spacing: 0.05em;
+  user-select: none;
+  transition: border-color var(--e3dc-transition);
+}
+
+.devcard:hover .devcard__avatar-placeholder {
+  border-color: var(--e3dc-accent);
+}
+
+/* =========================================
+   CORPO
+   ========================================= */
+.devcard__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.devcard__name {
+  margin: 0 0 0.2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--e3dc-text);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.devcard__role {
+  margin: 0 0 0.75rem;
+  font-size: var(--e3dc-fs-sm);
+  font-family: var(--e3dc-font-mono);
+  color: var(--e3dc-accent);
+  letter-spacing: 0.04em;
+}
+
+.devcard__bio {
+  margin: 0 0 1rem;
+  font-size: var(--e3dc-fs-sm);
+  color: var(--e3dc-muted);
+  line-height: 1.6;
+}
+
+/* =========================================
+   LINK SOCIAL
+   ========================================= */
+.devcard__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.devcard__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 4px 10px;
+  border: 1px solid var(--e3dc-border);
+  border-radius: var(--e3dc-radius);
+  font-size: var(--e3dc-fs-xs);
+  font-family: var(--e3dc-font-mono);
+  color: var(--e3dc-muted);
+  text-decoration: none;
+  transition: color var(--e3dc-transition),
+              border-color var(--e3dc-transition),
+              box-shadow var(--e3dc-transition);
+  white-space: nowrap;
+}
+
+.devcard__link svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+/* Website usa stroke invece di fill */
+.devcard__link--website svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.devcard__link:hover {
+  color: var(--e3dc-accent);
+  border-color: var(--e3dc-accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--e3dc-accent) 20%, transparent);
+}
+
+/* Colori accent per piattaforma (hover) */
+.devcard__link--github:hover   { color: #e0e0e0; border-color: #e0e0e0; box-shadow: none; }
+.devcard__link--twitter:hover  { color: #1d9bf0; border-color: #1d9bf0; box-shadow: 0 0 8px rgba(29,155,240,.2); }
+.devcard__link--linkedin:hover { color: #0a66c2; border-color: #0a66c2; box-shadow: 0 0 8px rgba(10,102,194,.2); }
+.devcard__link--website:hover  { color: var(--e3dc-accent); border-color: var(--e3dc-accent); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 480px) {
+  .devcard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .devcard__links {
+    justify-content: center;
+  }
+
+  .devcard__name {
+    white-space: normal;
+  }
+}
