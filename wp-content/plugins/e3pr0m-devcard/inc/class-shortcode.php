@@ -30,28 +30,41 @@ defined( 'ABSPATH' ) || exit;
 add_shortcode( 'devcard', 'e3dc_shortcode_render' );
 
 /**
- * Normalizza le virgolette tipografiche nei tag [devcard] PRIMA
- * che il parser degli shortcode li elabori.
+ * Pulisce il tag [devcard] dal contenuto DOPO wpautop (priority 10)
+ * e PRIMA di do_shortcode (priority 11).
  *
- * Gutenberg salva nel DB le virgolette come " " (U+201C/201D).
- * Il parser di WordPress usa regex che cercano " dritte (U+0022)
- * come delimitatori degli attributi: se trova curly quotes tratta
- * il valore come unquoted e si ferma al primo spazio.
+ * wpautop converte le newline tra gli attributi in <br /> che il parser
+ * degli shortcode non capisce. Questo filter:
+ *  1. Rimuove <br /> e tag <p> inseriti dentro il tag [devcard ...]
+ *  2. Normalizza curly/smart quotes e entità HTML → " dritte
  *
- * Priorità 1: dobbiamo girare PRIMA di do_blocks() (priorità 9, registrato
- * da WP core prima del plugin). do_blocks() chiama do_shortcode() internamente
- * sul contenuto grezzo del blocco Shortcode — se arriviamo dopo è già tardi.
+ * Deve essere registrato DOPO wpautop e shortcode_unautop (entrambi priority 10,
+ * aggiunti da WP core prima di questo plugin) così gira per ultimo a priority 10.
  */
-add_filter( 'the_content', 'e3dc_normalize_shortcode_quotes', 1 );
+add_filter( 'the_content', 'e3dc_sanitize_shortcode_tag', 10 );
 
-function e3dc_normalize_shortcode_quotes( string $content ): string {
+function e3dc_sanitize_shortcode_tag( string $content ): string {
 	return preg_replace_callback(
 		'/\[devcard\b[^\]]*\]/s',
 		function ( array $m ): string {
+			$tag = $m[0];
+
+			// Rimuove <br />, <br>, </p>, <p> che wpautop ha inserito tra gli attributi
+			$tag = preg_replace( '/<br\s*\/?>/', ' ', $tag );
+			$tag = preg_replace( '/<\/?\s*p\s*>/', ' ', $tag );
+
+			// Normalizza entità HTML delle virgolette tipografiche
+			$tag = str_replace(
+				[ '&#8220;', '&#8221;', '&#8216;', '&#8217;', '&#8222;', '&ldquo;', '&rdquo;', '&lsquo;', '&rsquo;', '&bdquo;', '&laquo;', '&raquo;' ],
+				[ '"',       '"',       "'",       "'",       '"',       '"',       '"',       "'",       "'",       '"',       '"',       '"'       ],
+				$tag
+			);
+
+			// Normalizza caratteri Unicode raw delle virgolette tipografiche
 			return str_replace(
 				[ "\u{201C}", "\u{201D}", "\u{2018}", "\u{2019}", "\u{201E}", "\u{00AB}", "\u{00BB}" ],
-				[ '"',         '"',         "'",          "'",          '"',         '"',         '"'         ],
-				$m[0]
+				[ '"',        '"',        "'",         "'",         '"',        '"',        '"'        ],
+				$tag
 			);
 		},
 		$content
@@ -60,6 +73,8 @@ function e3dc_normalize_shortcode_quotes( string $content ): string {
 
 /**
  * Callback dello shortcode [devcard].
+ * Usato come fallback se `pre_do_shortcode_tag` non intercetta
+ * (es. WordPress < 4.7 o contesti che bypassano quel filter).
  *
  * @param array|string $atts Attributi passati dall'utente.
  * @return string            HTML della card.
@@ -87,8 +102,6 @@ function e3dc_shortcode_render( array|string $atts ): string {
 		'devcard'
 	);
 
-	// L'editor visuale di WordPress converte " dritte in " tipografiche.
-	// Le puliamo da tutti gli attributi stringa prima di usarli.
 	$atts = e3dc_strip_smart_quotes( $atts );
 
 	return e3dc_render_card(
@@ -342,8 +355,12 @@ function e3dc_strip_smart_quotes( array $atts ): array {
 		"\u{00BB}", // » caporali chiusura
 	];
 
+	// Entità HTML che Gutenberg inserisce nei blocchi rich-text
+	$html_entities = [ '&#8220;', '&#8221;', '&#8216;', '&#8217;', '&#8222;', '&ldquo;', '&rdquo;', '&lsquo;', '&rsquo;', '&bdquo;', '&laquo;', '&raquo;' ];
+
 	foreach ( $atts as $key => $value ) {
 		if ( is_string( $value ) ) {
+			$value = str_replace( $html_entities, '', $value );
 			$atts[ $key ] = trim( str_replace( $smart_quotes, '', $value ) );
 		}
 	}
