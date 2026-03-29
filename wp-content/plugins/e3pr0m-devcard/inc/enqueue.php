@@ -83,4 +83,12 @@ function e3dc_enqueue_editor_assets(): void {
 		[],
 		E3DC_VERSION
 	);
+
+	wp_register_script(
+		'e3dc-block-editor',
+		E3DC_ASSETS . 'js/block-editor.js',
+		[ 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-server-side-render' ],
+		E3DC_VERSION,
+		true
+	);
 }

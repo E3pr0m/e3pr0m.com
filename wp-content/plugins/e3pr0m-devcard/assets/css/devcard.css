@@ -85,7 +85,7 @@
 .devcard__avatar-placeholder {
   width: var(--e3dc-avatar-size);
   height: var(--e3dc-avatar-size);
-  border-radius: 50%;
+  border-radius: 50% !important;
   display: block;
 }
 

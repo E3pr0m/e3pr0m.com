@@ -45,13 +45,17 @@ function e3dc_block_render( array $attrs, string $content = '' ): string {
 	e3dc_mark_assets_needed();
 
 	return e3dc_render_card(
-		name:     $attrs['name']     ?? '',
-		role:     $attrs['role']     ?? '',
-		bio:      $attrs['bio']      ?? '',
-		avatar:   $attrs['avatar']   ?? '',
-		github:   $attrs['github']   ?? '',
-		twitter:  $attrs['twitter']  ?? '',
-		linkedin: $attrs['linkedin'] ?? '',
-		website:  $attrs['website']  ?? '',
+		name:      $attrs['name']      ?? '',
+		role:      $attrs['role']      ?? '',
+		bio:       $attrs['bio']       ?? '',
+		avatar:    $attrs['avatar']    ?? '',
+		location:  $attrs['location']  ?? '',
+		available: (bool) ( $attrs['available'] ?? false ),
+		github:    $attrs['github']    ?? '',
+		linkedin:  $attrs['linkedin']  ?? '',
+		twitter:   $attrs['twitter']   ?? '',
+		website:   $attrs['website']   ?? '',
+		email:     $attrs['email']     ?? '',
+		skills:    $attrs['skills']    ?? '',
 	);
 }

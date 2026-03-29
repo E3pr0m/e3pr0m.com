@@ -41,6 +41,22 @@
 		"website": {
 			"type": "string",
 			"default": ""
+		},
+		"email": {
+			"type": "string",
+			"default": ""
+		},
+		"location": {
+			"type": "string",
+			"default": ""
+		},
+		"available": {
+			"type": "boolean",
+			"default": false
+		},
+		"skills": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {
@@ -49,6 +65,7 @@
 		"className": false,
 		"anchor": true
 	},
+	"editorScript": "e3dc-block-editor",
 	"editorStyle": "e3dc-style-editor",
 	"style": "e3dc-style"
 }

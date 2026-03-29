@@ -166,14 +166,15 @@ function e3dc_render_card(
 	<div class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>" aria-label="<?php echo esc_attr( $name ); ?>">
 
 		<?php if ( $avatar ) : ?>
-		<div class="devcard__avatar" aria-hidden="true">
+		<div class="devcard__avatar-wrap" aria-hidden="true">
 			<img
+				class="devcard__avatar"
 				src="<?php echo esc_url( $avatar ); ?>"
 				alt="<?php echo esc_attr( $name ); ?>"
 				loading="lazy"
 				decoding="async"
-				width="96"
-				height="96"
+				width="80"
+				height="80"
 			/>
 		</div>
 		<?php endif; ?>
@@ -205,7 +206,7 @@ function e3dc_render_card(
 			<?php endif; ?>
 
 			<?php if ( $bio ) : ?>
-			<p class="devcard__bio"><?php echo esc_html( $bio ); ?></p>
+			<p class="devcard__bio"><?php echo wp_kses( $bio, [ 'span' => [ 'style' => [] ] ] ); ?></p>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $skill_list ) ) : ?>

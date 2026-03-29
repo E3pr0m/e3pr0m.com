@@ -30,6 +30,9 @@ get_header();
       <a href="<?php echo esc_url( get_page_link( get_page_by_path( 'contatti' ) ) ); ?>" class="btn btn--outline">
         <?php esc_html_e( 'Contattami', 'e3pr0m-theme' ); ?>
       </a>
+            <a href="<?php echo esc_url( get_page_link( get_page_by_path( 'Devcard' ) ) ); ?>" class="btn btn--outline">
+        <?php esc_html_e( 'DevCard', 'e3pr0m-theme' ); ?>
+      </a>
     </div>
   </div>
 </section>
