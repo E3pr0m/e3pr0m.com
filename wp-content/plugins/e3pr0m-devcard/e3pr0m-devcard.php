@@ -38,7 +38,7 @@ add_action( 'init', function () {
 		false,
 		dirname( plugin_basename( __FILE__ ) ) . '/languages'
 	);
-} );
+} ); 
 
 // =========================================
 // INCLUDE — ordine importante:
